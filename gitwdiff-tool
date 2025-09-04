@@ -3,18 +3,18 @@
 difftool="$1"
 path="$2"
 oldfile="$3"
-oldhex="$4"
+#oldhex="$4"
 oldmode="$5"
 newfile="$6"
-newhex="$7"
+#newhex="$7"
 newmode="$8"
 
 esc=$(printf '\033[')
 msg="${esc}1m*** $path${esc}m"
-if [ "$#" == "1" ]; then
+if [ "$#" -eq 1 ]; then
     echo "$msg: unmerged"
 else
-    if [ "$oldfile" == "/dev/null" ]; then
+    if [ "$oldfile" = "/dev/null" ]; then
         echo "$msg: new file, mode $newmode"
         echo
     else
